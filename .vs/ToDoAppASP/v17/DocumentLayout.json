@@ -3,12 +3,16 @@
   "WorkspaceRootPath": "C:\\Users\\Tomas\\source\\repos\\ToDoAppASP\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{0601A7A2-4AF5-4BB6-A0EF-DE12ABB8C8CC}|ToDoAppASP\\ToDoAppASP.csproj|c:\\users\\tomas\\source\\repos\\todoappasp\\todoappasp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{0601A7A2-4AF5-4BB6-A0EF-DE12ABB8C8CC}|ToDoAppASP\\ToDoAppASP.csproj|solutionrelative:todoappasp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{0601A7A2-4AF5-4BB6-A0EF-DE12ABB8C8CC}|ToDoAppASP\\ToDoAppASP.csproj|c:\\users\\tomas\\source\\repos\\todoappasp\\todoappasp\\views\\home\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{0601A7A2-4AF5-4BB6-A0EF-DE12ABB8C8CC}|ToDoAppASP\\ToDoAppASP.csproj|solutionrelative:todoappasp\\views\\home\\add.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0601A7A2-4AF5-4BB6-A0EF-DE12ABB8C8CC}|ToDoAppASP\\ToDoAppASP.csproj|c:\\users\\tomas\\source\\repos\\todoappasp\\todoappasp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
       "RelativeMoniker": "D:0:0:{0601A7A2-4AF5-4BB6-A0EF-DE12ABB8C8CC}|ToDoAppASP\\ToDoAppASP.csproj|solutionrelative:todoappasp\\views\\home\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{0601A7A2-4AF5-4BB6-A0EF-DE12ABB8C8CC}|ToDoAppASP\\ToDoAppASP.csproj|c:\\users\\tomas\\source\\repos\\todoappasp\\todoappasp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{0601A7A2-4AF5-4BB6-A0EF-DE12ABB8C8CC}|ToDoAppASP\\ToDoAppASP.csproj|solutionrelative:todoappasp\\controllers\\homecontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{0601A7A2-4AF5-4BB6-A0EF-DE12ABB8C8CC}|ToDoAppASP\\ToDoAppASP.csproj|c:\\users\\tomas\\source\\repos\\todoappasp\\todoappasp\\models\\filters.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -26,20 +30,33 @@
       "DocumentGroups": [
         {
           "DockedWidth": 200,
-          "SelectedChildIndex": 3,
+          "SelectedChildIndex": 1,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 3,
               "Title": "Filters.cs",
               "DocumentMoniker": "C:\\Users\\Tomas\\source\\repos\\ToDoAppASP\\ToDoAppASP\\Models\\Filters.cs",
               "RelativeDocumentMoniker": "ToDoAppASP\\Models\\Filters.cs",
               "ToolTip": "C:\\Users\\Tomas\\source\\repos\\ToDoAppASP\\ToDoAppASP\\Models\\Filters.cs",
               "RelativeToolTip": "ToDoAppASP\\Models\\Filters.cs",
-              "ViewState": "AQIAABYAAAAAAAAAAAAcwAAAAAAAAAAA",
+              "ViewState": "AQIAAAUAAAAAAAAAAAAQwAkAAAAhAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-12T15:38:36.21Z",
               "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Add.cshtml",
+              "DocumentMoniker": "C:\\Users\\Tomas\\source\\repos\\ToDoAppASP\\ToDoAppASP\\Views\\Home\\Add.cshtml",
+              "RelativeDocumentMoniker": "ToDoAppASP\\Views\\Home\\Add.cshtml",
+              "ToolTip": "C:\\Users\\Tomas\\source\\repos\\ToDoAppASP\\ToDoAppASP\\Views\\Home\\Add.cshtml",
+              "RelativeToolTip": "ToDoAppASP\\Views\\Home\\Add.cshtml",
+              "ViewState": "AQIAAAMAAAAAAAAAAAAowAoAAAAKAAAA",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-08-13T13:42:33.591Z",
               "EditorCaption": ""
             },
             {
@@ -50,33 +67,33 @@
               "RelativeDocumentMoniker": "ToDoAppASP\\Views\\Home\\Index.cshtml",
               "ToolTip": "C:\\Users\\Tomas\\source\\repos\\ToDoAppASP\\ToDoAppASP\\Views\\Home\\Index.cshtml",
               "RelativeToolTip": "ToDoAppASP\\Views\\Home\\Index.cshtml",
-              "ViewState": "AQIAAAAAAAAAAAAAAAAAAB0AAAAOAAAA",
+              "ViewState": "AQIAACMAAAAAAAAAAAAYwDAAAAA4AAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-08-12T16:48:32.095Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 4,
               "Title": "_Layout.cshtml",
               "DocumentMoniker": "C:\\Users\\Tomas\\source\\repos\\ToDoAppASP\\ToDoAppASP\\Views\\Shared\\_Layout.cshtml",
               "RelativeDocumentMoniker": "ToDoAppASP\\Views\\Shared\\_Layout.cshtml",
               "ToolTip": "C:\\Users\\Tomas\\source\\repos\\ToDoAppASP\\ToDoAppASP\\Views\\Shared\\_Layout.cshtml",
               "RelativeToolTip": "ToDoAppASP\\Views\\Shared\\_Layout.cshtml",
-              "ViewState": "AQIAAAkAAAAAAAAAAAAAABsAAAAAAAAA",
+              "ViewState": "AQIAAAAAAAAAAAAAAAAAABsAAAAAAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
               "WhenOpened": "2024-08-12T16:22:29.049Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 2,
               "Title": "HomeController.cs",
               "DocumentMoniker": "C:\\Users\\Tomas\\source\\repos\\ToDoAppASP\\ToDoAppASP\\Controllers\\HomeController.cs",
               "RelativeDocumentMoniker": "ToDoAppASP\\Controllers\\HomeController.cs",
               "ToolTip": "C:\\Users\\Tomas\\source\\repos\\ToDoAppASP\\ToDoAppASP\\Controllers\\HomeController.cs",
               "RelativeToolTip": "ToDoAppASP\\Controllers\\HomeController.cs",
-              "ViewState": "AQIAAF4AAAAAAAAAAAA8wGsAAAASAAAA",
+              "ViewState": "AQIAAAQAAAAAAAAAAAAcwGoAAAAeAAAA",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2024-08-12T14:59:30.314Z",
               "EditorCaption": ""
