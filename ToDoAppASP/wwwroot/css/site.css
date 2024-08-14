@@ -1,22 +1,92 @@
-html {
-  font-size: 14px;
+/* Set a very light pink background color for the entire page */
+html, body {
+    height: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: #fce4ec; /* Very light pink */
 }
 
-@media (min-width: 768px) {
-  html {
-    font-size: 16px;
-  }
+/* Header background color and text alignment */
+header.bg-primary {
+    background-color: #bfae8d; /* Light brown */
+    color: white;
+    text-align: center; /* Center-align text */
+    padding-bottom: 20px; /* Add padding around header text */
 }
 
-.btn:focus, .btn:active:focus, .btn-link.nav-link:focus, .form-control:focus, .form-check-input:focus {
-  box-shadow: 0 0 0 0.1rem white, 0 0 0 0.25rem #258cfb;
+/* Ensure header uses Flexbox to stack items vertically */
+header {
+    display: flex;
+    flex-direction: column; /* Stack h1 and h2 vertically */
+    align-items: center; /* Center-align child elements */
 }
 
-html {
-  position: relative;
-  min-height: 100%;
+    /* Style for h1 */
+    header h1 {
+        margin: 0;
+        padding: 10px 0; /* Adjust padding as needed */
+        font-size: 2rem; /* Adjust size as needed */
+    }
+
+    /* Style for h2 */
+    header h2 {
+        margin-top: -80px; /* Move the element 20px up */
+        margin: 0; /* Remove margin to avoid extra space above and below */
+        padding: 0; /* Remove padding */
+        font-size: 1.2rem; /* Smaller font size than h1 */
+        font-weight: normal; /* Adjust font weight if needed */
+        margin-bottom: 20px; /* Add bottom margin to move content below */
+    }
+
+/* Container for centering content and setting maximum width */
+.container {
+    max-width: 1440px;
+    margin: 0 auto; /* Center container horizontally */
+    padding: 20px; /* Add padding if needed */
+    background-color: #ffffff; /* White background for the content area */
+    border: 1px solid #e0e0e0; /* Light border to simulate "walls" */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Optional: Adds a subtle shadow */
 }
 
-body {
-  margin-bottom: 60px;
+/* Adjust button styles */
+.btn-primary {
+    background-color: #d2b48c; /* Light brown */
+    border-color: #d2b48c; /* Light brown */
+}
+
+    .btn-primary:hover {
+        background-color: #bfae8d; /* Slightly darker light brown for hover */
+        border-color: #bfae8d; /* Slightly darker light brown for hover */
+    }
+
+/* Optional: Ensure the background covers full width */
+.bg-primary {
+    --bs-bg-opacity: 0;
+    width: 100%;
+    height: 100px; /* Adjust height as needed */
+    background-color: #bfae8d; /* Light brown to match button */
+    color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Style for elements with specific margins and padding */
+.m-3.p-3 {
+    width: 100%; /* Full width */
+    background-color: #d2b48c; /* Light brown */
+    color: white;
+    box-sizing: border-box; /* Ensure padding/margin are included in width/height */
+}
+
+.m-2 {
+    margin-top: -80px; /* Move the element 20px up */
+    width: 100%; /* Full width */
+    font-size: 22px; /* Adjust font size */
+    font-weight: 500;
+    color: black;
+}
+
+.row {
+    padding-top: 50px;
 }

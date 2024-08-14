@@ -12,21 +12,30 @@
 
     <div class="mb-3">
         <label asp-for="CategoryId" class="form-label">Category</label>
-        <select asp-for="CategoryId" class="form-select" asp-items="@(new SelectList(ViewBag.Categories,"CategoryId", "Name"))">
-            <option value=""></option>
+        <select asp-for="CategoryId" class="form-select" asp-items="@(new SelectList(ViewBag.Categories, "CategoryId", "Name"))">
+            <option value="">Select Category</option>
         </select>
     </div>
 
     <div class="mb-3">
         <label asp-for="DueDate" class="form-label">Due Date:</label>
-        <input type="text" asp-for="DueDate" class="form-control" type="text" />
+        <input type="date" asp-for="DueDate" class="form-control" />
     </div>
 
     <div class="mb-3">
         <label asp-for="StatusId" class="form-label">Status</label>
-        <select asp-for="StatusId" class="form-select" asp-items="@(new SelectList(ViewBag.Statuses,"StatusId", "Name"))">
+        <select asp-for="StatusId" class="form-select" asp-items="@(new SelectList(ViewBag.Statuses, "StatusId", "Name"))">
+            <option value="">Select Status</option>
         </select>
     </div>
+
+    <div class="mb-3">
+        <label asp-for="TaskPriority" class="form-label">Priority</label>
+        <select asp-for="TaskPriority" class="form-select" asp-items="@(new SelectList(ViewBag.Priorities, "Value", "Text"))">
+            <option value="">Select Priority</option>
+        </select>
+    </div>
+
     <button type="submit" class="btn btn-primary">Add</button>
     <a asp-action="Index" class="btn btn-primary">Cancel</a>
 </form>

@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
 using ToDoAppASP.Models;
+using System.Linq;
+using System;
 
 namespace ToDoAppASP.Controllers
 {
@@ -18,6 +20,9 @@ namespace ToDoAppASP.Controllers
             ViewBag.Categories = context.Categories.ToList();
             ViewBag.Statuses = context.Statuses.ToList();
             ViewBag.DueFilters = Filters.DueFilterValues;
+            ViewBag.Priorities = Enum.GetValues(typeof(ToDo.Priority))
+                                     .Cast<ToDo.Priority>()
+                                     .Select(p => new { Value = p.ToString(), Text = p.ToString() });
 
             IQueryable<ToDo> query = context.ToDos
                 .Include(t => t.Category)
@@ -50,6 +55,14 @@ namespace ToDoAppASP.Controllers
                 }
             }
 
+            if (filters.HasPriority)
+            {
+                if (Enum.TryParse<ToDo.Priority>(filters.Priority, out var priority))
+                {
+                    query = query.Where(t => t.TaskPriority == priority);
+                }
+            }
+
             var tasks = query.OrderBy(t => t.DueDate).ToList();
             return View(tasks);
         }
@@ -59,6 +72,10 @@ namespace ToDoAppASP.Controllers
         {
             ViewBag.Categories = context.Categories.ToList();
             ViewBag.Statuses = context.Statuses.ToList();
+            ViewBag.Priorities = Enum.GetValues(typeof(ToDo.Priority))
+                                     .Cast<ToDo.Priority>()
+                                     .Select(p => new { Value = p.ToString(), Text = p.ToString() });
+
             var task = new ToDo { StatusId = "open" };
             return View(task);
         }
@@ -76,15 +93,18 @@ namespace ToDoAppASP.Controllers
             {
                 ViewBag.Categories = context.Categories.ToList();
                 ViewBag.Statuses = context.Statuses.ToList();
+                ViewBag.Priorities = Enum.GetValues(typeof(ToDo.Priority))
+                                         .Cast<ToDo.Priority>()
+                                         .Select(p => new { Value = p.ToString(), Text = p.ToString() });
+
                 return View(task);
             }
         }
 
         [HttpPost]
-        public IActionResult Filter(string categoryFilter, string dueFilter, string statusFilter)
+        public IActionResult Filter(string categoryFilter, string dueFilter, string statusFilter, string priorityFilter)
         {
-            string filterString = $"{categoryFilter}-{dueFilter}-{statusFilter}";
-
+            string filterString = $"{categoryFilter}-{dueFilter}-{statusFilter}-{priorityFilter}";
             return RedirectToAction("Index", new { id = filterString });
         }
 
@@ -98,7 +118,7 @@ namespace ToDoAppASP.Controllers
                 selected.StatusId = "done";
                 context.SaveChanges();
             }
-            return RedirectToAction("Index", new { ID = id });
+            return RedirectToAction("Index", new { id = id });
         }
 
         [HttpPost]
@@ -112,7 +132,7 @@ namespace ToDoAppASP.Controllers
             }
             context.SaveChanges();
 
-            return RedirectToAction("Index", new { ID = id });
+            return RedirectToAction("Index", new { id = id });
         }
     }
 }
