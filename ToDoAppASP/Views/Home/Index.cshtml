@@ -1,25 +1,25 @@
 ﻿@model IEnumerable<ToDo>
 
     <div class="row">
-        <div class="col-md-2"
+        <div class="col-md-2">
             <form asp-action="Filter" method="post">
                 <div class="mb-3">
                     <label class="form-label">Category</label>
-                    <select name="filter" class="form-select"
+                    <select name="categoryFilter" class="form-select"
                     asp-items="@(new SelectList(ViewBag.Categories,"CategoryId","Name",ViewBag.Filters.CategoryId))">
                     <option value="all">All</option>
                 </select>
                 </div>
                 <div class="mb-3">
                     <label class="form-label">Due:</label>
-                    <select name="filter" class="form-select"
+                    <select name="dueFilter" class="form-select"
                     asp-items="@(new SelectList(ViewBag.DueFilters, "Key", "Value", ViewBag.Filters.Due))">
                     <option value="all">All</option>
                 </select>
                 </div>
-                <div class="mb-3"
+                <div class="mb-3">
                     <label class="form-label">Status:</label>
-                    <select name="filter" class="form-select"
+                    <select name="statusFilter" class="form-select"
                     asp-items="@(new SelectList(ViewBag.Statuses,"StatusId", "Name", ViewBag.Filters.StatusId))">
                     <option value="all">All</option>
                     </select>
@@ -28,7 +28,7 @@
                 <a asp-action="Index" asp-route-id="" class="btn btn-primary">Clear</a>
             </form>
         </div>
-        <div class="col-md-10"
+        <div class="col-md-10">
         <form asp-action="MarkComplete" method="post" asp-route-id="@ViewBag.Filters.FilterString">
             <table class="table table-bordered table-striped mt-2">
                 <thead>
@@ -63,8 +63,8 @@
             </table>
         </form>
         <form asp-action="DeleteComplete" method="post" asp-route-id="@ViewBag.Filters.FilterString">
-             <a asp-action="Add" class="btn btn-primary">Add new task</a>
-             <button type="submit" class="btn btn-primary">Delete completed tasks</button>
+            <a asp-action="Add" class="btn btn-primary">Add new task</a>
+            <button type="submit" class="btn btn-primary">Delete completed tasks</button>
         </form>
         </div>
     </div>  

@@ -13,7 +13,6 @@ namespace ToDoAppASP.Models
 
         public DbSet<Status> Statuses { get; set; } = null!;
 
-        //seed data
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {

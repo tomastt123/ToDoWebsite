@@ -1,13 +1,12 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Diagnostics;
 using ToDoAppASP.Models;
 
 namespace ToDoAppASP.Controllers
 {
     public class HomeController : Controller
     {
-        private ToDoContext context;
+        private readonly ToDoContext context;
 
         public HomeController(ToDoContext ctx) => context = ctx;
 
@@ -52,8 +51,6 @@ namespace ToDoAppASP.Controllers
             }
 
             var tasks = query.OrderBy(t => t.DueDate).ToList();
-
-            // Pass the tasks list to the view
             return View(tasks);
         }
 
@@ -84,20 +81,21 @@ namespace ToDoAppASP.Controllers
         }
 
         [HttpPost]
-        public IActionResult Filter(string[] filter)
+        public IActionResult Filter(string categoryFilter, string dueFilter, string statusFilter)
         {
-            string id = string.Join('-', filter);
-            return RedirectToAction("Index", new { ID = id });
+            string filterString = $"{categoryFilter}-{dueFilter}-{statusFilter}";
+
+            return RedirectToAction("Index", new { id = filterString });
         }
 
         [HttpPost]
         public IActionResult MarkComplete([FromRoute] string id, ToDo selected)
         {
-            selected = context.ToDos.Find(selected.Id)!;
+            selected = context.ToDos.Find(selected.Id);
 
             if (selected != null)
             {
-                selected.StatusId = "closed";
+                selected.StatusId = "done";
                 context.SaveChanges();
             }
             return RedirectToAction("Index", new { ID = id });
@@ -106,7 +104,7 @@ namespace ToDoAppASP.Controllers
         [HttpPost]
         public IActionResult DeleteComplete(string id)
         {
-            var toDelete = context.ToDos.Where(t => t.StatusId == "closed").ToList();
+            var toDelete = context.ToDos.Where(t => t.StatusId == "done").ToList();
 
             foreach (var task in toDelete)
             {
