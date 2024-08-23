@@ -1,4 +1,4 @@
-﻿@model ToDo
+﻿@model ToDoAppASP.Models.ToDo
 
 <h2>New Task</h2>
 
@@ -34,6 +34,27 @@
         <select asp-for="TaskPriority" class="form-select" asp-items="@(new SelectList(ViewBag.Priorities, "Value", "Text"))">
             <option value="">Select Priority</option>
         </select>
+    </div>
+
+    <!-- Recurrence Fields -->
+    <div class="mb-3">
+        <label asp-for="RecurrenceFrequency" class="form-label">Recurrence Frequency</label>
+        <select asp-for="RecurrenceFrequency" class="form-select">
+            <option value="">None</option>
+            <option value="Daily">Daily</option>
+            <option value="Weekly">Weekly</option>
+            <option value="Monthly">Monthly</option>
+        </select>
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="RecurrenceInterval" class="form-label">Recurrence Interval</label>
+        <input asp-for="RecurrenceInterval" type="number" class="form-control" min="1" />
+    </div>
+
+    <div class="mb-3">
+        <label asp-for="RecurrenceEndDate" class="form-label">Recurrence End Date</label>
+        <input asp-for="RecurrenceEndDate" type="date" class="form-control" />
     </div>
 
     <button type="submit" class="btn btn-primary">Add</button>

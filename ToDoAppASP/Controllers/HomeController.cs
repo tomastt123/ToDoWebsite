@@ -85,8 +85,26 @@ namespace ToDoAppASP.Controllers
         {
             if (ModelState.IsValid)
             {
+                if (!task.DueDate.HasValue)
+                {
+                    task.DueDate = DateTime.Today; 
+                }
+
+                var calculatedDueDate = CalculateNextDueDate(task);
+
+                if (calculatedDueDate.HasValue)
+                {
+                    task.DueDate = calculatedDueDate.Value;
+                }
+
                 context.ToDos.Add(task);
                 context.SaveChanges();
+
+                if (task.RecurrenceFrequency != null)
+                {
+                    CreateRecurringTasks(task);
+                }
+
                 return RedirectToAction("Index");
             }
             else
@@ -133,6 +151,59 @@ namespace ToDoAppASP.Controllers
             context.SaveChanges();
 
             return RedirectToAction("Index", new { id = id });
+        }
+
+        private DateTime? CalculateNextDueDate(ToDo task)
+        {
+            if (task.RecurrenceFrequency == null || !task.DueDate.HasValue)
+                return null;
+
+            DateTime nextDueDate = task.DueDate.Value;
+
+            switch (task.RecurrenceFrequency.ToLower())
+            {
+                case "daily":
+                    nextDueDate = nextDueDate.AddDays(task.RecurrenceInterval ?? 1);
+                    break;
+                case "weekly":
+                    nextDueDate = nextDueDate.AddDays(7 * (task.RecurrenceInterval ?? 1));
+                    break;
+                case "monthly":
+                    nextDueDate = nextDueDate.AddMonths(task.RecurrenceInterval ?? 1);
+                    break;
+                default:
+                    break;
+            }
+
+            if (task.RecurrenceEndDate.HasValue && nextDueDate > task.RecurrenceEndDate.Value)
+                return null;
+
+            return nextDueDate;
+        }
+
+        private void CreateRecurringTasks(ToDo task)
+        {
+            DateTime? nextDueDate = CalculateNextDueDate(task);
+
+            while (nextDueDate.HasValue && (!task.RecurrenceEndDate.HasValue || nextDueDate <= task.RecurrenceEndDate))
+            {
+                var newTask = new ToDo
+                {
+                    Description = task.Description,
+                    DueDate = nextDueDate,
+                    CategoryId = task.CategoryId,
+                    StatusId = task.StatusId,
+                    TaskPriority = task.TaskPriority,
+                    RecurrenceFrequency = task.RecurrenceFrequency,
+                    RecurrenceInterval = task.RecurrenceInterval,
+                    RecurrenceEndDate = task.RecurrenceEndDate
+                };
+
+                context.ToDos.Add(newTask);
+                context.SaveChanges();
+
+                nextDueDate = CalculateNextDueDate(newTask);
+            }
         }
     }
 }

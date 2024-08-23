@@ -43,5 +43,9 @@ namespace ToDoAppASP.Models
         public Status Status { get; set; } = null!;
 
         public bool Overdue => StatusId == "open" && DueDate < DateTime.Today;
+
+        public string? RecurrenceFrequency { get; set; } 
+        public int? RecurrenceInterval { get; set; } 
+        public DateTime? RecurrenceEndDate { get; set; } 
     }
 }
